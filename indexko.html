@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>独立出口 · 一人一线</title>
+<meta name="description" content="一人一个专属账号，独享出口。不限流量、不限速度。到期可查、中断顺延、未开通全退。">
+<style>
+:root{
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;
+  --mono:ui-monospace,"SFMono-Regular",Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;min-height:100%}
+body{
+  font-family:var(--sans); color:#fff; -webkit-font-smoothing:antialiased;
+  background:radial-gradient(ellipse 100% 80% at 76% 22%, #16453B 0%, #0D2E27 40%, #071C18 78%, #061714 100%);
+  min-height:100vh; display:flex; flex-direction:column;
+}
+::selection{background:rgba(255,255,255,.22); color:#fff}
+a{color:inherit}
+
+/* 极细光线，克制呼应"独立线路" */
+.light{position:fixed; top:-20%; right:-4%; width:1px; height:150%;
+  background:linear-gradient(180deg,transparent 0%,rgba(120,235,200,.4) 45%,rgba(120,235,200,.04) 72%,transparent 100%);
+  transform:rotate(18deg); pointer-events:none; z-index:0}
+
+.stage{position:relative; z-index:1; flex:1; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; text-align:center; padding:64px 24px 40px}
+
+.kicker{font-family:var(--mono); font-size:.6875rem; letter-spacing:.28em; text-transform:uppercase;
+  color:rgba(255,255,255,.55); margin:0 0 30px}
+h1{margin:0; font-size:4.8rem; font-weight:600; letter-spacing:.05em; line-height:1.14}
+h1 .dim{color:rgba(255,255,255,.42)}
+.lede{max-width:24em; margin:26px 0 0; font-size:1.0625rem; line-height:1.9; color:rgba(255,255,255,.74)}
+
+.enter{display:inline-flex; align-items:center; justify-content:center; min-height:62px; margin-top:46px;
+  padding:16px 56px; border:1px solid #fff; color:#0C2A24; background:#fff;
+  font-size:1.0625rem; font-weight:600; letter-spacing:.1em; text-decoration:none;
+  transition:transform .18s, box-shadow .18s}
+.enter:hover{transform:translateY(-2px); box-shadow:0 16px 44px rgba(0,0,0,.34)}
+.enter .arw{margin-left:14px; font-weight:400}
+
+.foot{margin:24px 0 0; font-size:.8125rem; letter-spacing:.05em; color:rgba(255,255,255,.48)}
+.bottom{position:relative; z-index:1; text-align:center; padding:0 24px 34px;
+  font-family:var(--mono); font-size:.625rem; letter-spacing:.16em; color:rgba(255,255,255,.3)}
+
+@media(max-width:640px){
+  .stage{padding:56px 20px 32px}
+  .kicker{font-size:.625rem; letter-spacing:.2em; margin-bottom:24px}
+  h1{font-size:2.75rem; line-height:1.2}
+  .lede{font-size:.9375rem; margin-top:22px}
+  .enter{min-height:56px; width:100%; max-width:340px; padding:14px 24px; margin-top:38px}
+  .foot{font-size:.75rem}
+}
+</style>
+</head>
+<body>
+<div class="light"></div>
+
+<main class="stage">
+  <p class="kicker" id="kicker">Private network · 独立网络服务</p>
+  <h1 id="heroTitle">独立出口<br><span class="dim">一人一线</span></h1>
+  <p class="lede" id="heroLede">一人一个专属账号，独享出口。不限流量、不限速度，不跟别人挤同一条线。</p>
+  <a class="enter" href="#" id="enterBtn"><span id="ctaText">进入官网</span><span class="arw">→</span></a>
+  <p class="foot" id="heroFoot">到期可查 · 中断顺延 · 未开通全退</p>
+</main>
+
+<div class="bottom" id="bottomNote">Private access · limited seats</div>
+
+<script src="https://sub-k7f2m9x4.oss-cn-shenzhen.aliyuncs.com/s/hero.js"></script>
+<script>
+(function () {
+  var t = window.HERO_TEXT || {};
+  function set(id, val){ if (val && document.getElementById(id)) document.getElementById(id).innerHTML = val; }
+  set('kicker', t.kicker);
+  set('heroTitle', t.title);
+  set('heroLede', t.lede);
+  set('ctaText', t.cta);
+  set('heroFoot', t.foot);
+  set('bottomNote', t.bottom);
+
+  // kourou 专用落地页：按钮固定指向 kourou 分销站，文案仍复用 OSS hero.js。
+  // 与主站 GitHub 页唯一差异就是下面这一行地址。
+  var btn = document.getElementById('enterBtn');
+  if (btn) btn.href = 'https://198.200.63.215/kourou/';
+})();
+</script>
+</body>
+</html>
